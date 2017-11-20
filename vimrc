@@ -35,5 +35,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 
 " Powerline
+let g:powerline_pycmd="py3"
 let $PYTHONPATH='/usr/lib/python3.5/site-packages'
 set laststatus=2
