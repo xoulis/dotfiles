@@ -1,5 +1,6 @@
-﻿
-----------------------------------------------
+﻿#	Notes to Linux
+
+
 ## SAMBA                               
 ----------------------------------------------
 Adding a user   
@@ -9,7 +10,6 @@ List Samba users
     
     sudo pdbedit -L -v
 
-----------------------------------------------
 ##     ADD A NEW USER TO SECONDARY GROUP   
 ----------------------------------------------
 To add a new group, all you need to do is 
@@ -27,9 +27,7 @@ adding that user to a new group,
 use the usermod command.
 
     usermod -a -G groupName userName
-----------------------------------------------
 
-----------------------------------------------
 ##     ENSURE THAT USER IS ADDED            
 ----------------------------------------------
     id username
@@ -72,9 +70,7 @@ use the usermod command.
 OBS. If you have any leftover "kill Plymouth" lines in /etc/rc.local or ~/.xinitrc
      they are no longer required.
      
-----------------------------------------------
 
-----------------------------------------------
 ##      CANNOT RUN STEAM                    
 ----------------------------------------------
 	find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete
@@ -83,7 +79,6 @@ OBS. If you have any leftover "kill Plymouth" lines in /etc/rc.local or ~/.xinit
 
 
 
-----------------------------------------------
 ##     CORRECT TIME IN WINDOWS              
 ----------------------------------------------
 I recently faced the same problem and this is how I fixed it. You need to make some minor changes in both operating systems.
@@ -111,7 +106,6 @@ From the next boot onward, both operating systems will show you the correct time
 -------------------------------------------------
 	localectl --no-convert set-x11-keymap gr,us pc104  grp:alt_shift_toggle
 
-----------------------------------------------
 ##     Fix Bluetooth                        
 ----------------------------------------------
 Get the id of the bluetooth device from lsusb command
@@ -126,14 +120,12 @@ change it to
 
 	USB_BLACKLIST="0bda:57d6"
 
-----------------------------------------------
 ##             MIRORS                       
 ----------------------------------------------
  	
     sudo pacman-mirrors -f 0
 
 
-----------------------------------------------
 ##            git vim update               
 ----------------------------------------------
 	cd ~/.vim/bundle
@@ -146,7 +138,12 @@ change it to
   
 	for i in ~/.vim/bundle/*; do git -C $i pull; done
 
+##	Git basic workflow
 ----------------------------------------------
+git - the simple guide
+	http://rogerdudler.github.io/git-guide/
+
+
 ##	Git store credentials                 
 ----------------------------------------------
 	git config credential.helper store
