@@ -2,16 +2,22 @@
 ----------------------------------------------
 ## SAMBA                               
 ----------------------------------------------
-Adding a user   # smbpasswd -a samba_user
-List Samba users    #sudo pdbedit -L -v
+Adding a user   
+    
+    smbpasswd -a samba_user
+List Samba users    
+    
+    sudo pdbedit -L -v
 
 ----------------------------------------------
 ##     ADD A NEW USER TO SECONDARY GROUP   
 ----------------------------------------------
 To add a new group, all you need to do is 
 use the groupadd command like so:
+    
     groupadd <groupname>
 Change a User’s Primary Group
+    
     usermod -g <groupname> username
 
     useradd -G {group-name} username
@@ -71,8 +77,9 @@ OBS. If you have any leftover "kill Plymouth" lines in /etc/rc.local or ~/.xinit
 ----------------------------------------------
 ##      CANNOT RUN STEAM                    
 ----------------------------------------------
-find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete
-find ~/.local/share/Steam/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete
+	find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete
+	
+    find ~/.local/share/Steam/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" -o -name "libgpg-error.so*" \) -print -delete
 
 
 
@@ -88,68 +95,71 @@ This will update your time if it is not set correctly.
 
 Now set the hardware clock to UTC with this command.
 
-hwclock –systohc –utc
-Source
+	hwclock –systohc –utc
+	Source
 
 Now boot to Windows and add the following to the registry. Simply create a .reg file using the code below in Notepad. Save it and run it.
 
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
-“RealTimeIsUniversal”=dword:00000001
-Source
+	Windows Registry Editor Version 5.00
+	[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+	“RealTimeIsUniversal”=dword:00000001
+	Source
 
 From the next boot onward, both operating systems will show you the correct time.
 
-Change input language
-localectl --no-convert set-x11-keymap gr,us pc104  grp:alt_shift_toggle
+##	Change input language
+-------------------------------------------------
+	localectl --no-convert set-x11-keymap gr,us pc104  grp:alt_shift_toggle
 
 ----------------------------------------------
 ##     Fix Bluetooth                        
 ----------------------------------------------
 Get the id of the bluetooth device from lsusb command
-$ lsusb
+	
+    $ lsusb
 Let's say, 0bda:57d6 is the offending device. Now open the tlp configuration file at /etc/default/tlp. I prefer nano editor, so use command sudo nano /etc/default/tlp
 
 Find the line that reads
 
-#USB_BLACKLIST="1111:2222 3333:4444"
+	 #USB_BLACKLIST="1111:2222 3333:4444"
 change it to
 
-USB_BLACKLIST="0bda:57d6"
+	USB_BLACKLIST="0bda:57d6"
 
 ----------------------------------------------
 ##             MIRORS                       
 ----------------------------------------------
- sudo pacman-mirrors -f 0
+ 	
+    sudo pacman-mirrors -f 0
 
 
 ----------------------------------------------
 ##            git vim update               
 ----------------------------------------------
-cd ~/.vim/bundle
-for i in `ls`; do
-  cd "$i"
-  git pull
-  cd ..
+	cd ~/.vim/bundle
+	for i in `ls`; do
+  	cd "$i"
+  	git pull
+  	cd ..
   
   --or--
   
-for i in ~/.vim/bundle/*; do git -C $i pull; done
+	for i in ~/.vim/bundle/*; do git -C $i pull; done
 
 ----------------------------------------------
-##Git store credentials                 
+##	Git store credentials                 
 ----------------------------------------------
-git config credential.helper store
+	git config credential.helper store
 then
 
- git pull
+ 	git pull
 provide user-name and password and those details will be remembered later. The credentials are stored in the disk, with the disk permissions.
 
 if you want to change password later
 
-git config credential.helper store 
+	git config credential.helper store 
 then
 
- git pull
+ 	git pull
 provide new password and it will work like before.
 
