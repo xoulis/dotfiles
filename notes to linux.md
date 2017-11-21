@@ -164,15 +164,14 @@ provide new password and it will work like before.
 ----------------------------------------------
 1. install the w3m-img package 
 2. create the bash script muttimage.sh
-
+***
 	#! /bin/sh
-	#### Determine size of Terminal
+	#Determine size of Terminal
 	height=`stty  size | awk 'BEGIN {FS = " "} {print $1;}'`
 	width=`stty  size | awk 'BEGIN {FS = " "} {print $2;}'`
-	### Display Image / offset with mutt bar
+	# Display Image / offset with mutt bar
 	echo -e "2;3;n0;1;210;20;$((width*7-250));$((height*14-100));0;0;0;0;$1n4;n3;" |  /usr/lib/w3m/w3mimgdisplay &
 3.  add the following command in your mailcap.mutt located in your .mutt directory
+    	image/*; ~/PATH/YOUR/SCRIPT/muttimage.sh %s ; copiousoutput
 
-	image/*; ~/PATH/YOUR/SCRIPT/muttimage.sh %s ; copiousoutput
-
-##
+## 
