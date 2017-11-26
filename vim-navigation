@@ -3,3 +3,17 @@
 [Ctrl- w + q] close split
 
 NerdTree show hiden file (uppercase i) I
+
+## Vimdiff
+do - Get changes from other window into the current window.
+
+dp - Put the changes from current window into the other window.
+
+]c - Jump to the next change.
+
+[c - Jump to the previous change.
+
+Ctrl W + Ctrl W - Switch to the other split window.
+
+If you load up two files in splits (:vs or :sp), you can do :diffthis on each window and achieve a diff of files that were already loaded in buffers
+:diffoff can be used to turn off the diff mode. 
