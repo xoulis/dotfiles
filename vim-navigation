@@ -1,3 +1,6 @@
+# VIM
+----------------------------------------
+
 [Ctrl- w w] move betwen open windows
 [Ctrl- pgup / pgdown] change tabs
 [Ctrl- w + q] close split
@@ -5,6 +8,8 @@
 NerdTree show hiden file (uppercase i) I
 
 ## Vimdiff
+----------------------------------------
+
 do - Get changes from other window into the current window.
 
 dp - Put the changes from current window into the other window.
@@ -16,4 +21,17 @@ dp - Put the changes from current window into the other window.
 Ctrl W + Ctrl W - Switch to the other split window.
 
 If you load up two files in splits (:vs or :sp), you can do :diffthis on each window and achieve a diff of files that were already loaded in buffers
-:diffoff can be used to turn off the diff mode. 
+:diffoff can be used to turn off the diff mode.
+
+## SpellCheck
+----------------------------------------
+
+spell language
+	:set spell spelllang=en_us
+only in local buffer
+	:setlocal spell spelllang=en_us
+spell check on/off
+	:set spell/nospell
+spell check
+	z=
+
