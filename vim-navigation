@@ -1,11 +1,34 @@
 # VIM
+
 ----------------------------------------
+
+#General
+----------------------------------------
+~  switch case
+  d  delete
+  c  change
+  y  yank
+  >  shift right 
+  <  shift left 
+  !  filter through external command 
+  =  filter through 'equalprg' option command 
+  gq  format lines to 'textwidth' length 
+
+u	Undo [count] changes.
+:u[ndo]	Undo one change.
+CTRL-R	Redo [count] changes which were undone.
+:red[o]	Redo one change which was undone.
+U	Undo all latest changes on one line. {Vi: while not moved off of it}
+.	Repeat last change, with count replaced with [count].
 
 [Ctrl- w w] move betwen open windows
 [Ctrl- pgup / pgdown] change tabs
 [Ctrl- w + q] close split
 
-NerdTree show hiden file (uppercase i) I
+ZZ	Write current file, if modified, and exit.
+ZQ	Quit current file and exit (same as ":q!").
+
+NerdTree show hiden file (Uppercase i) I
 
 ## Vimdiff
 ----------------------------------------
