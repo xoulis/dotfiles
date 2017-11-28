@@ -174,4 +174,9 @@ provide new password and it will work like before.
 3.  add the following command in your mailcap.mutt located in your .mutt directory
     	image/*; ~/PATH/YOUR/SCRIPT/muttimage.sh %s ; copiousoutput
 
-## 
+## How to change keyboard layout in i3
+----------------------------------------------
+setxkbmap -layout eu,gr
+setxkbmap -option 'grp:alt_shift_toggle'
+
+exec_always "setxkbmap -model pc104 -layout eu,gr ,, -option grp:alt_shift_toggle"
