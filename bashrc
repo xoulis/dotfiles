@@ -118,7 +118,9 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && 
 sudo pacman -Suu'
-
+alias gw='gcalcli calw 2'
+alias ga='gcalcli quick'
+alias gd='gcalcli delete'
 # ex - archive extractor
 # usage: ex <file>
 ex ()
