@@ -18,9 +18,12 @@ let g:calendar_google_task = 1
 if !has('gui_running')
 	set t_Co=256
 endif
+
+" Time maping 
 " map <F5> <C-R>=strftime("%a %d %b %Y")<CR>
 " map <F5> "=strftime("%a %d %b %Y")<CR>P
 map <F5> "=strftime("%d/%m/%y ")<CR>P
+map! <F5> <C-R>=strftime("%d/%m/%y ")<CR>
 
 "NerdTree
 "start NerdTree
