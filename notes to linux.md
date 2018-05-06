@@ -183,15 +183,17 @@ exec_always "setxkbmap -model pc104 -layout eu,gr ,, -option grp:alt_shift_toggl
 
 ## Kde plasma Fixes
 ----------------------------------------------
-o regenerate plasma config.
+To regenerate plasma config.
 
-cd ~/.config
-for j in plasma*; do mv -- "$j" "${j%}.bak"; done
+	cd ~/.config
+	for j in plasma*; do mv -- "$j" "${j%}.bak"; done
+
 To rebuild cache
 
-mv ~/.config/Trolltech.conf ~/.config/Trolltech.conf.bak
-mv ~/.cache/ ~/cache.bak
-mkdir ~/.cache
-kbuildsycoca5 --noincremental && kbuildsycoca4 --noincremental
+	mv ~/.config/Trolltech.conf ~/.config/Trolltech.conf.bak
+	mv ~/.cache/ ~/cache.bak
+	mkdir ~/.cache
+	kbuildsycoca5 --noincremental && kbuildsycoca4 --noincremental
+
 Later if required u can delete .bak files and directories.
 
