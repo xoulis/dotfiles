@@ -197,3 +197,12 @@ To rebuild cache
 
 Later if required u can delete .bak files and directories.
 
+## Primus with GF117M
+----------------------------------------------------
+# Bumblebee/Optimus:
+	sudo mhwd -r pci video-hybrid-intel-nvidia-bumblebee
+	sudo mhwd -i pci video-hybrid-intel-nvidia-390xx-bumblebee
+
+# Single card/PRIME:
+	sudo mhwd -r pci video-nvidia
+	sudo mhwd -i pci video-nvidia-390xx
