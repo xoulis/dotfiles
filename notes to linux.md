@@ -212,3 +212,8 @@ To check which gpu is enabled
 	cat /proc/acpi/bbswitch
 OFF in intel, ON is nvidia.
 
+Turn the card off, respectively on:
+	
+	tee /proc/acpi/bbswitch <<<OFF
+ 	tee /proc/acpi/bbswitch <<<ON
+
