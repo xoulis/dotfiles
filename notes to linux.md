@@ -208,6 +208,7 @@ Later if required u can delete .bak files and directories.
 	sudo mhwd -i pci video-nvidia-390xx
 
 To check which gpu is enabled
+
 	cat /proc/acpi/bbswitch
 OFF in intel, ON is nvidia.
 
