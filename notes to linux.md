@@ -1,5 +1,5 @@
 ﻿#	Notes to Linux
-
+Mainly some usefull notes for my arch adventures
 
 ## SAMBA                               
 ----------------------------------------------
@@ -126,7 +126,7 @@ change it to
     sudo pacman-mirrors -f 0
 
 
-##            git vim update               
+##            Git vim update               
 ----------------------------------------------
 	cd ~/.vim/bundle
 	for i in `ls`; do
@@ -196,6 +196,7 @@ To rebuild cache
 	kbuildsycoca5 --noincremental && kbuildsycoca4 --noincremental
 
 Later if required u can delete .bak files and directories.
+
 
 ## Primus with GF117M
 ----------------------------------------------------
