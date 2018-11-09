@@ -217,3 +217,87 @@ Turn the card off, respectively on:
 	tee /proc/acpi/bbswitch <<<OFF
  	tee /proc/acpi/bbswitch <<<ON
 
+## Set up PRIME with NVIDIA proprietary driver
+----------------------------------------------------
+# Step 1: remove bumblebee
+If you installed with the non-free driver option mhwd will have set up bumblebee for you. This will get in the way so the first step is to remove it. Use the mhwd command-line or simply remove it via Manjaro Settings Manager.
+
+# Step 2: install the NVIDIA driver
+Use mhwd or MSM to install the nvidia driver in the normal way.
+
+# Step 3: break fix mhwd's configuration
+mhwd does the sensible thing and puts configuration in place as though the NVIDIA GPU was the only device available. We need to change this setup so PRIME will work.
+
+# Step 3.1: set up a new Xorg configuration
+Firstly, remove /etc/X11/xorg.conf.d/90-mhwd.conf and replace it with:
+
+    /etc/X11/xorg.conf.d/optimus.conf
+
+While the BusID value above should be correct for most Optimus laptops you should check your values with 
+    lspci | grep -E "VGA|3D" .
+
+# Step 3.2: Refine blacklisting
+PRIME relies on nvidia-drm and mhwd puts it in a blacklist by default, but to to ensure the nvidia kernel module will load we still need to blacklist certain other modules. Therefore, you’ll have to do some editing of the files in /etc/modprobe.d.
+
+To remove the existing blacklist, edit, move or remove any related mhwd-* files in /etc/modprobe.d/, e.g.
+
+    ls /etc/modprobe.d/mhwd*
+    sudo rm /etc/modprobe.d/mhwd-gpu.conf
+    sudo rm /etc/modprobe.d/mhwd-nvidia.conf
+
+The end result must include a blacklist of the following modules, e.g. in /etc/modprobe.d/nvidia.conf:
+
+    blacklist nouveau
+    blacklist nvidiafb
+    blacklist rivafb
+
+# Step 4: enable nvidia-drm.modeset
+Create a new file,
+
+    /etc/modprobe.d/nvidia-drm.conf
+
+# Step 5: Set the output source for your DM.
+This is the most complicated part and the one which will take longest to get right. If you reboot now, your DM will load but display on the wrong output; the laptop display will be entirely blank (powered off).
+
+We need to set a startup script to load the correct settings while the DM is loading.
+
+Create a new file with the following content:
+
+    /usr/local/bin/optimus.sh
+
+Make sure to set it world read-execute, 
+    chmod a+rx /usr/local/bin/optimus.sh
+
+Now you have to get this to load in your DM’s startup sequence.
+
+LightDM
+Edit /etc/lightdm/lightdm.conf and set
+
+display-setup-script=/usr/local/bin/optimus.sh
+
+GDM
+Create a new file,
+
+ /usr/local/share/optimus.desktop
+and link it into place so it starts with GDM and on login
+
+sudo ln -s /usr/local/share/optimus.desktop /usr/share/gdm/greeter/autostart/optimus.desktop
+sudo ln -s /usr/local/share/optimus.desktop /etc/xdg/autostart/optimus.desktop
+You’ll also have to use X, not Wayland.
+
+SDDM
+Create a new file,
+
+ /usr/share/sddm/scripts/Xsetup
+
+# Step 6: reboot
+If everything is set correctly, when you reboot your DM will load, you can log in, and:
+
+$ glxinfo | grep -i vendor
+server glx vendor string: NVIDIA Corporation
+client glx vendor string: NVIDIA Corporation
+OpenGL vendor string: NVIDIA Corporation
+
+Hooray! You’re running X via the dGPU not the iGPU!
+
+If you have multiple displays you may have to configure their layout again in the normal way.

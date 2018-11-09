@@ -107,6 +107,7 @@ export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
+export MSF_DATABASE_CONFIG=~/.msf4/database.yml
 
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -118,9 +119,12 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
 alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && 
 sudo pacman -Suu'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
 alias gw='gcalcli calw 2'
 alias ga='gcalcli quick'
 alias gd='gcalcli delete'
+alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\"" 	#metasploit
 # ex - archive extractor
 # usage: ex <file>
 ex ()
@@ -148,6 +152,8 @@ ex ()
 # prompt
 PS1='[\u@\h \W]\$ '
 
+# 24h Time Format
+export LC_TIME="C"
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 #thefuck
@@ -156,5 +162,7 @@ eval $(thefuck --alias)
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
-
+. /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+## Screenfetch
+neofetch
+export PATH=/bin/lscript:/bin/lscript:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/xoulis/.gem/ruby/2.5.0/bin
