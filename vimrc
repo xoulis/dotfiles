@@ -1,7 +1,15 @@
+"       	   _                           
+"	  __   __ (_)  _ __ ___    _ __    ___ 
+"	  \ \ / / | | | '_ ` _ \  | '__|  / __|
+" 	   \ V /  | | | | | | | | | |    | (__ 
+"  	    \_/   |_| |_| |_| |_| |_|     \___|
+"  
+
 set mouse=r
 set wildmenu
 set wildmode=list:longest,full
-" set number 			"Line numbers are good
+set number 			"Line numbers are good
+set number relativenumber 	"Hiblid line numers
 syntax on              "turn on syntax highlighting
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -23,9 +31,20 @@ Plug 'itchyny/calendar.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'luochen1990/rainbow'
+Plug 'inside/vim-search-pulse'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"Plug 'RRethy/vim-illuminate'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+"rainbow can the toggled using :RainbowToggle; to enable the plugin at startup add:
+let g:rainbow_active = 1
+
+"The pulse duration can be customized to user’s taste.
+let g:vim_search_pulse_duration = 200
 
 " Calendar
 let g:calendar_google_calendar = 1
@@ -92,3 +111,4 @@ nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
 imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
 imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
+                                    
