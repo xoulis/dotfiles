@@ -1,9 +1,9 @@
-"       	   _                           
-"	  __   __ (_)  _ __ ___    _ __    ___ 
-"	  \ \ / / | | | '_ ` _ \  | '__|  / __|
-" 	   \ V /  | | | | | | | | | |    | (__ 
-"  	    \_/   |_| |_| |_| |_| |_|     \___|
-"  
+""""""""""""""""""""""""""""""""""""""""""""""""""
+""	  __   __ (_)  _ __ ___    _ __    ___ """
+""	  \ \ / / | | | '_ ` _ \  | '__|  / __|"""
+"" 	   \ V /  | | | | | | | | | |    | (__ """
+""  	    \_/   |_| |_| |_| |_| |_|     \___|"""
+""""""""""""""""""""""""""""""""""""""""""""""""""  
 
 set mouse=r
 set wildmenu
@@ -15,6 +15,10 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
+set incsearch			"Incremental search
+set hlsearch			"highlight search results
+set autowrite			"save changes when vim automatically switch buffers
+colorscheme delek
 
 " Vim-plug autoinstall
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -35,16 +39,29 @@ Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
 Plug 'inside/vim-search-pulse'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug '907th/vim-auto-save'
+Plug 'lifepillar/vim-cheat40'
 "Plug 'RRethy/vim-illuminate'
+"Plug 'xolox/vim-notes'
+"Plug 'xolox/vim-misc'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"rainbow can the toggled using :RainbowToggle; to enable the plugin at startup add:
-let g:rainbow_active = 1
+" -------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------------------- 
 
-"The pulse duration can be customized to user’s taste.
-let g:vim_search_pulse_duration = 200
+"VIM autosave
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
+
+" Rainbow parenthesis
+let g:rainbow_active = 1 "rainbow can the toggled using :RainbowToggle
+
+
+" Search pulse
+let g:vim_search_pulse_duration = 200 "The pulse duration can be customized to user’s taste.
+
 
 " Calendar
 let g:calendar_google_calendar = 1
@@ -73,13 +90,19 @@ let NERDTreeMinimalUI = 1
 
 "Airline vim
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+let g:airline_powerline_fonts = 1
 "let g:airline_theme='powerlineish'
 "let g:airline_solarized_bg='dark'
 
-" Powerline
-"let g:powerline_pycmd="py3"
-"let $PYTHONPATH='/usr/lib/python3.5/site-packages'
-"set laststatus=2
+"Swap and close buffers quickly
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+":nnoremap <C-X> :bdelete<CR>
+
+"Vim Notes
+"filetype plugin on
+":let g:notes_directories = ['/home/xoulis/Notes']
 
 "Markdown Preview
 "let g:mkdp_path_to_chrome = ""
@@ -107,6 +130,8 @@ let g:mkdp_auto_close = 1
 "let g:mkdp_open_to_the_world = 0
     " set to 1, preview server available to others in your network by default, the server only listens on localhost (127.0.0.1)
 
+" -------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------------------- 
 nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
 imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode

@@ -102,6 +102,9 @@ shopt -s extglob
 shopt -s histappend
 shopt -s hostcomplete
 
+##Set vi mode
+set -o vi
+## Exports
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
@@ -109,6 +112,7 @@ export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
 export MSF_DATABASE_CONFIG=~/.msf4/database.yml
 
+## Aliases
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -121,10 +125,12 @@ alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo
 sudo pacman -Suu'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias gw='gcalcli calw 2'
+alias gw='gcalcli calw -w 20 --military'
 alias ga='gcalcli quick'
 alias gd='gcalcli delete'
-alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\"" 	#metasploit
+#alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\"" 	#metasploit
+alias switchnv='optimus-manager --no-confirm --switch nvidia'
+alias switchin='optimus-manager --no-confirm --switch intel'
 # ex - archive extractor
 # usage: ex <file>
 ex ()
@@ -149,15 +155,18 @@ ex ()
   fi
 }
 
-# prompt
+## prompt
 PS1='[\u@\h \W]\$ '
 
-# 24h Time Format
+## 24h Time Format
 export LC_TIME="C"
-# better yaourt colors
+
+## better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-#thefuck
-eval $(thefuck --alias)
+
+## thefuck
+#eval $(thefuck --alias)
+
 ###POWERLINE
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
@@ -165,4 +174,29 @@ POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 ## Screenfetch
 neofetch
-export PATH=/bin/lscript:/bin/lscript:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/xoulis/.gem/ruby/2.5.0/bin
+export PATH=/bin/lscript:/bin/lscript:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/xoulis/.gem/ruby/2.5.0/bin:/home/xoulis/Applications/Scripts
+
+### Weather
+alias weather='curl wttr.in/her'
+alias moon='curl wttr.in/Moon'
+
+### Autojump
+source /usr/share/autojump/autojump.bash
+
+### Odt to PDF
+alias topdf='libreoffice --headless --convert-to pdf'
+
+###fzf
+source /usr/share/fzf/completion.bash && source /usr/share/fzf/key-bindings.bash
+# When selecting files with fzf, we show file content with syntax highlighting,
+# or without highlighting if it's not a source file. If the file is a directory,
+# we use tree to show the directory's contents.
+# We only load the first 200 lines of the file which enables fast previews
+# of large text files.
+# Requires highlight and tree: pacman -S highlight tree
+export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null ||
+cat {} || tree -C {}) 2> /dev/null | head -200'"
+#Path completion
+#use zathura for opening pdf
+#complete -o bashdefault -o default -F _fzf_path_completion zathura
+
