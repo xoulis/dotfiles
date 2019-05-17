@@ -5,16 +5,16 @@ RightButton;NoModifier=org.kde.latte.contextmenu
 activityId=
 dockWindowBehavior=false
 enableKWinEdges=false
-formfactor=2
+formfactor=3
 immutability=1
 lastScreen=12
-location=4
+location=6
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
 raiseOnDesktopChange=true
-timerHide=200
-timerShow=100
+timerHide=0
+timerShow=0
 visibility=3
 wallpaperplugin=org.kde.image
 
@@ -29,27 +29,49 @@ PreloadWeight=0
 isInLatteDock=true
 launchers59=applications:google-chrome.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop
 
-[Containments][1][Applets][56]
+[Containments][1][Applets][61]
+immutability=1
+plugin=org.kde.latte.spacer
+
+[Containments][1][Applets][61][Configuration]
+PreloadWeight=0
+
+[Containments][1][Applets][61][Configuration][ConfigDialog]
+DialogHeight=840
+DialogWidth=1120
+
+[Containments][1][Applets][61][Configuration][General]
+lengthPercentage=30
+
+[Containments][1][Applets][64]
 immutability=1
 plugin=org.kde.plasma.kickoff
 
-[Containments][1][Applets][56][Configuration]
-PreloadWeight=100
+[Containments][1][Applets][64][Configuration]
+PreloadWeight=15
 
-[Containments][1][Applets][56][Configuration][General]
+[Containments][1][Applets][64][Configuration][General]
 favoritesPortedToKAstats=true
 
+[Containments][1][Applets][66]
+immutability=1
+plugin=org.kde.plasma.trash
+
+[Containments][1][Applets][66][Configuration]
+PreloadWeight=0
+
 [Containments][1][ConfigDialog]
-DialogHeight=930
-DialogWidth=804
+DialogHeight=929
+DialogWidth=803
 
 [Containments][1][Configuration]
 PreloadWeight=0
 
 [Containments][1][General]
 activeIndicator=All
+activeIndicatorType=DotIndicator
 advanced=true
-appletOrder=56;2
+appletOrder=64;61;2;66
 dotsOnActive=true
 durationTime=x3
 glow3D=true
@@ -57,19 +79,19 @@ glowOpacity=50
 glowOption=OnActive
 highlightWindows=true
 launchersGroup=Global
-lockedZoomApplets=4
+lockedZoomApplets=56
+maxLength=88
 middleClickAction=ToggleMinimized
-panelShadows=false
-panelSize=45
-panelTransparency=60
+panelSize=90
+panelTransparency=50
+reverseLinesPosition=true
 shadowOpacity=60
-shadowSize=45
+shadowSize=85
 showGlow=true
 showToolTips=true
 showWindowActions=true
 threeColorsWindows=true
-useThemePanel=false
-zoomLevel=16
+zoomLevel=4
 
 [Containments][3]
 activityId=
@@ -123,8 +145,8 @@ clock_timeformat=hh:mm
 widget_show_timer=false
 
 [Containments][3][Applets][29][Configuration][Google Calendar]
-access_token=ya29.Gl3WBilyOGr5lnv30jd0dPMvQy9D7rGsy8JLyyGr1EvmawckY6NNRMMpWEyJRlOpVTpxjW5fCsZsnBG0ILz7iLU5Y20TNkjBBTGcOKbCUTLT9UT77h8a692sj3fErGk
-access_token_expires_at=2969762689
+access_token=ya29.Gl0JB9s6ROz20wmjT_VCVNKNzXnSscQfW4pFdo3NgzQ47L4lOqHF8vdncLLjWh73LMdfyOb1ujwqE2BWS7pusBlVACNdrvIZII_OEPODkoBWH3y90DbtlNhTIzcrUbA
+access_token_expires_at=3045764296
 access_token_type=Bearer
 calendar_id_list=alexander.detorakis@gmail.com
 calendar_list=W3sia2luZCI6ImNhbGVuZGFyI2NhbGVuZGFyTGlzdEVudHJ5IiwiZXRhZyI6IlwiMTUxMTI1NzAxNDIxMzAwMFwiIiwiaWQiOiJhbGV4YW5kZXIuZGV0b3Jha2lzQGdtYWlsLmNvbSIsInN1bW1hcnkiOiJPZmZpY2UiLCJ0aW1lWm9uZSI6IkV1cm9wZS9BdGhlbnMiLCJzdW1tYXJ5T3ZlcnJpZGUiOiJhbGV4YW5kZXIuZGV0b3Jha2lzQGdtYWlsLmNvbSIsImNvbG9ySWQiOiIxNCIsImJhY2tncm91bmRDb2xvciI6IiM5ZmUxZTciLCJmb3JlZ3JvdW5kQ29sb3IiOiIjMDAwMDAwIiwic2VsZWN0ZWQiOnRydWUsImFjY2Vzc1JvbGUiOiJvd25lciIsImRlZmF1bHRSZW1pbmRlcnMiOltdLCJwcmltYXJ5Ijp0cnVlLCJjb25mZXJlbmNlUHJvcGVydGllcyI6eyJhbGxvd2VkQ29uZmVyZW5jZVNvbHV0aW9uVHlwZXMiOlsiZXZlbnRIYW5nb3V0Il19fSx7ImtpbmQiOiJjYWxlbmRhciNjYWxlbmRhckxpc3RFbnRyeSIsImV0YWciOiJcIjEzODg2MTk4MDgzNjEwMDBcIiIsImlkIjoiNjdxY2xiamJmMjA2dXBzamtlMWE0cGNhNXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbSIsInN1bW1hcnkiOiLOlc6/z4HPhM6/zrvPjM6zzrnOvyIsImRlc2NyaXB0aW9uIjoizpXOv8+Bz4TOv867z4zOs865zr8gzpXOu867zrfOvc65zrrPjs69IM6/zr3Ov868zrHPg8+EzrnOus+Ozr0gzrXOv8+Bz4TPjs69IC0gR3JlZWsgbmFtZWRheXMgY2FsZW5kYXIiLCJ0aW1lWm9uZSI6IkV1cm9wZS9BdGhlbnMiLCJjb2xvcklkIjoiNSIsImJhY2tncm91bmRDb2xvciI6IiNmZjc1MzciLCJmb3JlZ3JvdW5kQ29sb3IiOiIjMDAwMDAwIiwic2VsZWN0ZWQiOnRydWUsImFjY2Vzc1JvbGUiOiJyZWFkZXIiLCJkZWZhdWx0UmVtaW5kZXJzIjpbXSwiY29uZmVyZW5jZVByb3BlcnRpZXMiOnsiYWxsb3dlZENvbmZlcmVuY2VTb2x1dGlvblR5cGVzIjpbImV2ZW50SGFuZ291dCJdfX0seyJraW5kIjoiY2FsZW5kYXIjY2FsZW5kYXJMaXN0RW50cnkiLCJldGFnIjoiXCIxNTA1MzA2MzM5MjU5MDAwXCIiLCJpZCI6IiNjb250YWN0c0Bncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20iLCJzdW1tYXJ5IjoiQ29udGFjdHMiLCJ0aW1lWm9uZSI6IkV1cm9wZS9BdGhlbnMiLCJzdW1tYXJ5T3ZlcnJpZGUiOiJDb250YWN0cyIsImNvbG9ySWQiOiIxMiIsImJhY2tncm91bmRDb2xvciI6IiNmYWQxNjUiLCJmb3JlZ3JvdW5kQ29sb3IiOiIjMDAwMDAwIiwic2VsZWN0ZWQiOnRydWUsImFjY2Vzc1JvbGUiOiJyZWFkZXIiLCJkZWZhdWx0UmVtaW5kZXJzIjpbXSwiY29uZmVyZW5jZVByb3BlcnRpZXMiOnsiYWxsb3dlZENvbmZlcmVuY2VTb2x1dGlvblR5cGVzIjpbImV2ZW50SGFuZ291dCJdfX0seyJraW5kIjoiY2FsZW5kYXIjY2FsZW5kYXJMaXN0RW50cnkiLCJldGFnIjoiXCIxNDEwNzY1MzUxNjIwMDAwXCIiLCJpZCI6IiNkYXludW1AZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29tIiwic3VtbWFyeSI6IkRheSBvZiB0aGUgeWVhciIsInRpbWVab25lIjoiRXVyb3BlL0F0aGVucyIsImNvbG9ySWQiOiIxNiIsImJhY2tncm91bmRDb2xvciI6IiM0OTg2ZTciLCJmb3JlZ3JvdW5kQ29sb3IiOiIjMDAwMDAwIiwic2VsZWN0ZWQiOnRydWUsImFjY2Vzc1JvbGUiOiJyZWFkZXIiLCJkZWZhdWx0UmVtaW5kZXJzIjpbXSwiY29uZmVyZW5jZVByb3BlcnRpZXMiOnsiYWxsb3dlZENvbmZlcmVuY2VTb2x1dGlvblR5cGVzIjpbImV2ZW50SGFuZ291dCJdfX0seyJraW5kIjoiY2FsZW5kYXIjY2FsZW5kYXJMaXN0RW50cnkiLCJldGFnIjoiXCIxNDMwNzU0MTExNjc3MDAwXCIiLCJpZCI6ImVsLm9ydGhvZG94X2NocmlzdGlhbml0eSNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbSIsInN1bW1hcnkiOiLOn8+BzrjPjM60zr/Ovs61z4IgzrHPgc6zzq/Otc+CIiwidGltZVpvbmUiOiJFdXJvcGUvQXRoZW5zIiwiY29sb3JJZCI6IjE3IiwiYmFja2dyb3VuZENvbG9yIjoiIzlhOWNmZiIsImZvcmVncm91bmRDb2xvciI6IiMwMDAwMDAiLCJzZWxlY3RlZCI6dHJ1ZSwiYWNjZXNzUm9sZSI6InJlYWRlciIsImRlZmF1bHRSZW1pbmRlcnMiOltdLCJjb25mZXJlbmNlUHJvcGVydGllcyI6eyJhbGxvd2VkQ29uZmVyZW5jZVNvbHV0aW9uVHlwZXMiOlsiZXZlbnRIYW5nb3V0Il19fSx7ImtpbmQiOiJjYWxlbmRhciNjYWxlbmRhckxpc3RFbnRyeSIsImV0YWciOiJcIjE0NTQ5Njc0NDQwOTUwMDBcIiIsImlkIjoiZW4uZ3JlZWsjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20iLCJzdW1tYXJ5IjoiSG9saWRheXMgaW4gR3JlZWNlIiwidGltZVpvbmUiOiJFdXJvcGUvQXRoZW5zIiwiY29sb3JJZCI6IjciLCJiYWNrZ3JvdW5kQ29sb3IiOiIjNDJkNjkyIiwiZm9yZWdyb3VuZENvbG9yIjoiIzAwMDAwMCIsInNlbGVjdGVkIjp0cnVlLCJhY2Nlc3NSb2xlIjoicmVhZGVyIiwiZGVmYXVsdFJlbWluZGVycyI6W10sImNvbmZlcmVuY2VQcm9wZXJ0aWVzIjp7ImFsbG93ZWRDb25mZXJlbmNlU29sdXRpb25UeXBlcyI6WyJldmVudEhhbmdvdXQiXX19LHsia2luZCI6ImNhbGVuZGFyI2NhbGVuZGFyTGlzdEVudHJ5IiwiZXRhZyI6IlwiMTQxMDc2NTM1MjM5NDAwMFwiIiwiaWQiOiJwI3dlYXRoZXJAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29tIiwic3VtbWFyeSI6IldlYXRoZXIiLCJ0aW1lWm9uZSI6IkV1cm9wZS9BdGhlbnMiLCJjb2xvcklkIjoiMjEiLCJiYWNrZ3JvdW5kQ29sb3IiOiIjY2NhNmFjIiwiZm9yZWdyb3VuZENvbG9yIjoiIzAwMDAwMCIsInNlbGVjdGVkIjp0cnVlLCJhY2Nlc3NSb2xlIjoicmVhZGVyIiwiZGVmYXVsdFJlbWluZGVycyI6W10sImNvbmZlcmVuY2VQcm9wZXJ0aWVzIjp7ImFsbG93ZWRDb25mZXJlbmNlU29sdXRpb25UeXBlcyI6WyJldmVudEhhbmdvdXQiXX19XQ==
@@ -134,24 +156,28 @@ refresh_token=1/dN2XgqAXD6Wxt5SeXPGvu6FMRrppg5d529mkaa0vPa8
 [Containments][3][Applets][29][Configuration][Weather]
 weather_city_id=261741
 
-[Containments][3][Applets][32]
-immutability=1
-plugin=org.kde.plasma.lock_logout
-
-[Containments][3][Applets][32][Configuration]
-PreloadWeight=0
-
-[Containments][3][Applets][32][Configuration][ConfigDialog]
-DialogHeight=840
-DialogWidth=1120
-
 [Containments][3][Applets][36]
 immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][3][Applets][36][Configuration]
-PreloadWeight=100
+PreloadWeight=0
 SystrayContainmentId=37
+
+[Containments][3][Applets][69]
+immutability=1
+plugin=org.kde.plasma.uswitcher
+
+[Containments][3][Applets][69][Configuration]
+PreloadWeight=0
+
+[Containments][3][Applets][69][Configuration][ConfigDialog]
+DialogHeight=840
+DialogWidth=1120
+
+[Containments][3][Applets][69][Configuration][General]
+showFullName=false
+showTechnicalInfo=true
 
 [Containments][3][Applets][8]
 immutability=1
@@ -165,30 +191,32 @@ DialogHeight=840
 DialogWidth=1120
 
 [Containments][3][ConfigDialog]
-DialogHeight=968
-DialogWidth=836
+DialogHeight=965
+DialogWidth=834
 
 [Containments][3][Configuration]
 PreloadWeight=0
 
 [Containments][3][General]
+activeIndicator=None
 advanced=true
-appletOrder=8;29;32;25;36
+appletOrder=8;29;25;69;36
 blurEnabled=false
 durationTime=x3
 iconMargin=0
 iconSize=42
+lockedZoomApplets=29;25
 middleClickAction=ToggleGrouping
 panelPosition=10
 panelSize=100
 panelTransparency=60
-shadowOpacity=30
+shadowSize=75
 showOnlyCurrentActivity=false
 showOnlyCurrentDesktop=true
 showWindowsOnlyFromLaunchers=true
-shrinkThickMargins=false
+solidBackgroundForMaximized=true
 splitterPosition=1
-splitterPosition2=4
+splitterPosition2=5
 titleTooltips=false
 zoomLevel=0
 
@@ -207,7 +235,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][37][Applets][38][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][37][Applets][38][Configuration][ConfigDialog]
 DialogHeight=840
@@ -285,7 +313,11 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][37][Applets][49][Configuration]
-PreloadWeight=25
+PreloadWeight=0
+
+[Containments][37][Applets][49][Configuration][ConfigDialog]
+DialogHeight=840
+DialogWidth=1120
 
 [Containments][37][Applets][50]
 immutability=1
@@ -299,9 +331,9 @@ immutability=1
 plugin=org.kde.kscreen
 
 [Containments][37][Applets][58][Configuration]
-PreloadWeight=96
+PreloadWeight=0
 
-[Containments][37][Applets][59]
+[Containments][37][Applets][70]
 immutability=1
 plugin=org.kde.plasma.battery
 
