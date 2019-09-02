@@ -385,4 +385,13 @@ Any parameter not specified in your config file will take value from the default
 
 Please refer to the comments in the default config file for descriptions of the available parameters. In particular, it is possible to set common Xorg options like DRI version or triple buffering, as well as some kernel module loading options.
 
-Those parameters probably do not cover all use cases (yet), but feel free to open an issue if you think something else should be added there.
+Those parameters probably do not cover all use cases (yet), but feel free to open an issue if you think something else should beem  added there.
+
+------------------------------------------------------------------------------------------------------------
+## Find corect DPI
+	xrandr | grep -w connected
+ Convert output to centimetres or with a long ruler by hand.  Then divide by 2.54 to convert them in inches, and then divide the resolution with the output.
+ 	
+ 	1920/13.54in=141 x 1080/7.63in=141.54
+ -------------------------------------------------------------------------------------------------------------
+ 
