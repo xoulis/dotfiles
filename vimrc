@@ -4,7 +4,7 @@
 "" 	   \ V /  | | | | | | | | | |    | (__ """
 ""  	    \_/   |_| |_| |_| |_| |_|     \___|"""
 """"""""""""""""""""""""""""""""""""""""""""""""""  
-
+			
 set mouse=r
 set wildmenu
 set wildmode=list:longest,full
@@ -18,6 +18,9 @@ set showmode                    "Show current mode down the bottom
 set incsearch			"Incremental search
 set hlsearch			"highlight search results
 set autowrite			"save changes when vim automatically switch buffers
+set ignorecase			"case insesitive search
+set smartcase			"smart case insensitive search
+setglobal spell spelllang=en_us,el 	"set spell language
 colorscheme delek
 
 " Vim-plug autoinstall
@@ -41,6 +44,7 @@ Plug 'inside/vim-search-pulse'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug '907th/vim-auto-save'
 Plug 'lifepillar/vim-cheat40'
+Plug 'romainl/vim-cool'
 "Plug 'RRethy/vim-illuminate'
 "Plug 'xolox/vim-notes'
 "Plug 'xolox/vim-misc'
@@ -48,8 +52,33 @@ Plug 'lifepillar/vim-cheat40'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" -------------------------------------------------------------------------------------------
-" ------------------------------------------------------------------------------------------- 
+"	         _             _           
+"	   _ __ | |_   _  __ _(_)_ __  ___ 
+"	  | '_ \| | | | |/ _` | | '_ \/ __|
+"	  | |_) | | |_| | (_| | | | | \__ \
+"	  | .__/|_|\__,_|\__, |_|_| |_|___/
+"	  |_|            |___/             
+"
+
+" Vim cheat sheat
+" <leader> + ? 
+" <\> + ?
+
+" Time Date maping 
+iab xdate <c-r>=strftime("%d/%m/%y %H:%M")<cr>
+
+" Spell togle
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+
+nnoremap <silent> <Leader>s :call ToggleSpellCheck()<CR>
+"nmap <silent> <leader>s :set spell!<CR>
 
 "VIM autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -58,10 +87,11 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 " Rainbow parenthesis
 let g:rainbow_active = 1 "rainbow can the toggled using :RainbowToggle
 
+" vim cool
+let g:CoolTotalMatches = 1
 
 " Search pulse
 let g:vim_search_pulse_duration = 200 "The pulse duration can be customized to user’s taste.
-
 
 " Calendar
 let g:calendar_google_calendar = 1
@@ -69,24 +99,6 @@ let g:calendar_google_task = 1
 if !has('gui_running')
 	set t_Co=256
 endif
-
-" Time maping 
-" map <F5> <C-R>=strftime("%a %d %b %Y")<CR>
-" map <F5> "=strftime("%a %d %b %Y")<CR>P
-map <F5> <C-R>=strftime("%d/%m/%y ")<CR>P
-map! <F5> <C-R>=strftime("%d/%m/%y ")<CR>
-
-"NerdTree
-"start NerdTree
-map <C-n> :NERDTreeToggle<CR>
-" autoclose nerdtree
-let NERDTreeQuitOnOpen = 1
-" quit nerdtree if last window   
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Automatically delete the buffer of the file you just deleted with NerdTree
-let NERDTreeAutoDeleteBuffer = 1
-" NERDTree minimal
-let NERDTreeMinimalUI = 1
 
 "Airline vim
 let g:airline#extensions#tabline#enabled = 1
@@ -100,11 +112,19 @@ let g:airline_powerline_fonts = 1
 :nnoremap <S-Tab> :bprevious<CR>
 ":nnoremap <C-X> :bdelete<CR>
 
-"Vim Notes
-"filetype plugin on
-":let g:notes_directories = ['/home/xoulis/Notes']
+" NerdTree
+" start NerdTree
+map <C-n> :NERDTreeToggle<CR>
+" autoclose nerdtree
+let NERDTreeQuitOnOpen = 1
+" quit nerdtree if last window   
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Automatically delete the buffer of the file you just deleted with NerdTree
+let NERDTreeAutoDeleteBuffer = 1
+" NERDTree minimal
+let NERDTreeMinimalUI = 1
 
-"Markdown Preview
+" Markdown Preview
 "let g:mkdp_path_to_chrome = ""
     " path to the chrome or the command to open chrome(or other modern browsers)
     " if set, g:mkdp_browserfunc would be ignored
@@ -121,7 +141,7 @@ let g:airline_powerline_fonts = 1
 let g:mkdp_auto_close = 1
     " set to 1, the vim will auto close current preview window when change from markdown buffer to another buffer
 
-"let g:mkdp_refresh_slow = 0
+let g:mkdp_refresh_slow = 0
     " set to 1, the vim will just refresh markdown when save the buffer or leave from insert mode, default 0 is auto refresh markdown as you edit or move the cursor
 
 "let g:mkdp_command_for_global = 0
@@ -129,11 +149,12 @@ let g:mkdp_auto_close = 1
 
 "let g:mkdp_open_to_the_world = 0
     " set to 1, preview server available to others in your network by default, the server only listens on localhost (127.0.0.1)
-
-" -------------------------------------------------------------------------------------------
-" ------------------------------------------------------------------------------------------- 
 nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
 imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
 imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
-                                    
+ 
+" Vim Notes
+"filetype plugin on
+":let g:notes_directories = ['/home/xoulis/Notes']
+
