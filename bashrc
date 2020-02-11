@@ -121,13 +121,13 @@ alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
-alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && 
-sudo pacman -Suu'
+alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && sudo pacman -Suu'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias gw='gcalcli calw -w 20 --military'
+alias gw='gcalcli calw -w 16 --military'
 alias ga='gcalcli quick'
 alias gd='gcalcli delete'
+alias battery='ipman -s'
 #alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\"" 	#metasploit
 alias switchnv='optimus-manager --no-confirm --switch nvidia'
 alias switchin='optimus-manager --no-confirm --switch intel'
@@ -171,7 +171,7 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+. /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
 ## Screenfetch
 neofetch
 export PATH=/bin/lscript:/bin/lscript:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/xoulis/.gem/ruby/2.5.0/bin:/home/xoulis/Applications/Scripts
