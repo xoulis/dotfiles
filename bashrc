@@ -141,7 +141,7 @@ alias preview='markdown_previewer'
 #alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\"" 	#metasploit
 alias switchnv='optimus-manager --no-confirm --switch nvidia'
 alias switchin='optimus-manager --no-confirm --switch intel'
-alias yay='paru'
+# alias yay='paru'
 alias less='bat'
 # ex - archive extractor
 # usage: ex <file>
