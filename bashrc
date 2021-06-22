@@ -1,7 +1,11 @@
-#
-# ~/.bashrc
-#
-
+####################################################################################
+#                          _               _                                       #
+#                         | |__   __ _ ___| |__  _ __ ___                          #
+#                         | '_ \ / _` / __| '_ \| '__/ __|                         # 
+#                        _| |_) | (_| \__ \ | | | | | (__ 	                   #
+#                       (_)_.__/ \__,_|___/_| |_|_|  \___|                         #
+#                                                                                  #
+#################################################################################### 
 [[ $- != *i* ]] && return
 
 colors() {
@@ -44,6 +48,8 @@ case ${TERM} in
 esac
 
 use_color=true
+#
+
 # Set colorful PS1 only on colorful terminals.
 # dircolors --print-database uses its own built-in database
 # instead of using /etc/DIR_COLORS.  Try to use the external file
@@ -111,6 +117,7 @@ export HISTCONTROL=ignoreboth
 export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
 export MSF_DATABASE_CONFIG=~/.msf4/database.yml
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ## Aliases
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -128,9 +135,14 @@ alias gw='gcalcli calw -w 16 --military'
 alias ga='gcalcli quick'
 alias gd='gcalcli delete'
 alias battery='ipman -s'
+alias bate='sudo ipman -e'
+alias batd='sudo ipman -d'
+alias preview='markdown_previewer'
 #alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\"" 	#metasploit
 alias switchnv='optimus-manager --no-confirm --switch nvidia'
 alias switchin='optimus-manager --no-confirm --switch intel'
+alias yay='paru'
+alias less='bat'
 # ex - archive extractor
 # usage: ex <file>
 ex ()
@@ -171,7 +183,7 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
+. /usr/share/powerline/bindings/bash/powerline.sh
 ## Screenfetch
 neofetch
 export PATH=/bin/lscript:/bin/lscript:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/xoulis/.gem/ruby/2.5.0/bin:/home/xoulis/Applications/Scripts
@@ -199,4 +211,4 @@ cat {} || tree -C {}) 2> /dev/null | head -200'"
 #Path completion
 #use zathura for opening pdf
 #complete -o bashdefault -o default -F _fzf_path_completion zathura
-
+                                                        
