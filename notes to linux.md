@@ -394,4 +394,35 @@ Those parameters probably do not cover all use cases (yet), but feel free to ope
  	
  	1920/13.54in=141 x 1080/7.63in=141.54
  -------------------------------------------------------------------------------------------------------------
+	
+## Multiseat configuration on Linux
+
+The easieast way I found was to use multiseat on Manjaro 
+	https://github.com/ezst036/EasySeats-releases
+	https://easy-seats.weebly.com/
+	
+Example of working seat1
+	sudo loginctl seat-status seat1
+seat1
+        Sessions: *4
+         Devices:
+                  ├─/sys/devices/pci0000:00/0000:00:02.0/drm/card0
+                  │ [MASTER] drm:card0
+                  │ └─/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-HDMI-A-1
+                  │   [MASTER] drm:card0-HDMI-A-1
+                  ├─/sys/devices/pci0000:00/0000:00:02.0/graphics/fb1
+                  │ graphics:fb1 "i915drmfb"
+                  └─/sys/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.2/0003:046D:C52B.0005/0003:046D:404D.000A/input/input42
+                    input:input42 "Logitech K400 Plus"
+                    ├─/sys/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.2/0003:046D:C52B.0005/0003:046D:404D.000A/input/input42/input42::capslock
+                    │ leds:input42::capslock
+                    ├─/sys/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.2/0003:046D:C52B.0005/0003:046D:404D.000A/input/input42/input42::compose
+                    │ leds:input42::compose
+                    ├─/sys/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.2/0003:046D:C52B.0005/0003:046D:404D.000A/input/input42/input42::kana
+                    │ leds:input42::kana
+                    ├─/sys/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.2/0003:046D:C52B.0005/0003:046D:404D.000A/input/input42/input42::numlock
+                    │ leds:input42::numlock
+                    └─/sys/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.2/0003:046D:C52B.0005/0003:046D:404D.000A/input/input42/input42::scrolllock
+                      leds:input42::scrolllock
+	
  
