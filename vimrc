@@ -158,3 +158,5 @@ imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
 "filetype plugin on
 ":let g:notes_directories = ['/home/xoulis/Notes']
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
